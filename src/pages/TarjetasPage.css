@@ -1,0 +1,78 @@
+/* src/pages/TarjetasPage.css */
+
+.tarjetas-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .content-area {
+    display: flex;
+    flex: 1;
+  }
+  
+  .tarjetas-main {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: #fafafa;
+    overflow-y: auto;
+  }
+  
+  .tarjetas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .tarjetas-header h2 {
+    color: #1976d2;
+  }
+  
+  .btn-add {
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .tarjetas-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .tarjetas-table th,
+  .tarjetas-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+  }
+  
+  .tarjetas-table th {
+    background-color: #1976d2;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  .btn-edit,
+  .btn-delete {
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-right: 0.25rem;
+    cursor: pointer;
+  }
+  .btn-edit {
+    background-color: #4caf50;
+  }
+  .btn-delete {
+    background-color: #d32f2f;
+  }
+  
+  /* Reusa modales de Movimientos/Categorías */
+  

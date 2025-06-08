@@ -1,0 +1,196 @@
+/* src/components/FormMovimiento.css */
+
+.form-movimiento {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Título */
+.form-title {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #1976d2;
+}
+
+/* Grupos básicos */
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+.form-textarea {
+  resize: vertical;
+}
+
+/* Inline group: select + botón “+” */
+.form-group-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.btn-small-add {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-small-add:hover {
+  background-color: #1565c0;
+}
+
+/* Mini-form para nueva categoría o tarjeta */
+.mini-form {
+  background: #f9f9f9;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.mini-form .form-input {
+  margin-bottom: 0.75rem;
+}
+
+/* Botones dentro de mini-form */
+.mini-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.btn-mini-submit {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-mini-submit:hover {
+  background-color: #439846;
+}
+.btn-mini-cancel {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-mini-cancel:hover {
+  background-color: #d5d5d5;
+}
+
+/* Mensaje de error */
+.error-message-form {
+  color: #d32f2f;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Botones finales */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.btn-cancel {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-cancel:hover {
+  background-color: #d5d5d5;
+}
+.btn-submit {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-submit:hover {
+  background-color: #1565c0;
+}
+
+/* Mini-modal overlay */
+.mini-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+/* Contenido del mini-modal */
+.mini-modal-content {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 320px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones dentro del mini-modal */
+.mini-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.btn-mini-submit {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-mini-cancel {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,36 @@
+/* src/components/Sidebar.css */
+
+.app-sidebar {
+    width: 200px;
+    background-color: #f5f7fa;
+    border-right: 1px solid #ddd;
+    min-height: calc(100vh - 60px); /* 60px es la altura del header */
+    padding-top: 1rem;
+  }
+  
+  .app-sidebar ul {
+    list-style: none;
+  }
+  
+  .app-sidebar li {
+    margin: 0.5rem 0;
+  }
+  
+  .app-sidebar a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .app-sidebar a:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .app-sidebar .active {
+    background-color: #1976d2;
+    color: #fff;
+  }
+  

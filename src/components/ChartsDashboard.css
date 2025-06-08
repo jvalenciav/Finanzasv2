@@ -1,0 +1,27 @@
+/* src/components/ChartsDashboard.css */
+
+.charts-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .chart-row {
+    display: flex;
+    gap: 1rem;
+  }
+  .chart-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    flex: 1;
+  }
+  .chart-container.small {
+    flex: 1;
+  }
+  .chart-container h4 {
+    margin-bottom: 0.5rem;
+    color: #1976d2;
+    font-size: 1rem;
+  }
+  

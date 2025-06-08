@@ -1,0 +1,31 @@
+/* src/index.css */
+
+/* Colores por defecto */
+:root {
+    --bg: #fafafa;
+    --text: #333;
+    --primary: #1976d2;
+    --header-bg: var(--primary);
+    --header-text: #fff;
+    --card-bg: #fff;
+    --shadow: rgba(0,0,0,0.1);
+  }
+  
+  /* Dark theme overrides */
+  :root[data-theme="dark"] {
+    --bg: #121212;
+    --text: #e0e0e0;
+    --primary: #90caf9;
+    --header-bg: #1f1f1f;
+    --header-text: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --shadow: rgba(0,0,0,0.4);
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  

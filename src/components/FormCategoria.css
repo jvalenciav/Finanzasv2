@@ -1,0 +1,68 @@
+/* src/components/FormCategoria.css */
+
+.form-categoria {
+    background: #fff;
+    padding: 1.25rem;
+    border-radius: 6px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  
+  .cat-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1976d2;
+  }
+  
+  .cat-group {
+    margin-bottom: 0.75rem;
+  }
+  .cat-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  .cat-input,
+  .cat-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .cat-input:focus,
+  .cat-select:focus {
+    outline: none;
+    border-color: #1976d2;
+  }
+  
+  .cat-error {
+    color: #d32f2f;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+  
+  .cat-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  .btn-cancel {
+    background: #e0e0e0;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-submit {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,45 @@
+/* src/components/FormTarjeta.css */
+
+.form-tarjeta {
+    background: #fff;
+    padding: 1.25rem;
+    border-radius: 6px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  
+  .tarjeta-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1976d2;
+  }
+  
+  .tar-group {
+    margin-bottom: 0.75rem;
+  }
+  .tar-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+  .tar-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .tar-input:focus {
+    outline: none;
+    border-color: #1976d2;
+  }
+  .tar-error {
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .tar-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
