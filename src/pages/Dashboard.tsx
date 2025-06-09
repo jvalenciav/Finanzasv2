@@ -17,6 +17,18 @@ import ChartsDashboard from "../components/ChartsDashboard";
 
 import "./Dashboard.css";
 
+// Formateador de moneda
+const currencyFormatter = new Intl.NumberFormat("es-MX", {
+  style: "currency",
+  currency: "MXN",
+  minimumFractionDigits: 2,
+});
+
+// Fechas por defecto: desde inicio de año hasta hoy
+const now = new Date();
+const startOfYear = `${now.getFullYear()}-01-01`;
+const today = now.toISOString().substring(0, 10);
+
 const Dashboard: React.FC = () => {
   const idUsuario = localStorage.getItem("idUsuario") || "";
 
@@ -25,11 +37,9 @@ const Dashboard: React.FC = () => {
   const [tars, setTars] = useState<Tarjeta[]>([]);
 
   const [filters, setFilters] = useState({
-    start: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-      .toISOString()
-      .substring(0, 10),
-    end: new Date().toISOString().substring(0, 10),
-    selectedTipos: [] as string[],    // ahora un array
+    start: startOfYear,
+    end: today,
+    selectedTipos: [] as string[],
     selectedCats: [] as string[],
     selectedTars: [] as string[],
   });
@@ -50,13 +60,13 @@ const Dashboard: React.FC = () => {
       setTars(allTars);
 
       const cm: Record<string, string> = {};
-      allCats.forEach(c => {
+      allCats.forEach((c) => {
         cm[c.idCategoria] = c.nombre;
       });
       setCatMap(cm);
 
       const tm: Record<string, string> = {};
-      allTars.forEach(t => {
+      allTars.forEach((t) => {
         tm[t.idTarjeta] = t.nombreTarjeta;
       });
       setTarMap(tm);
@@ -64,8 +74,8 @@ const Dashboard: React.FC = () => {
     load();
   }, [idUsuario]);
 
-  // aplicamos filtros
-  const filtered = movs.filter(m => {
+  // Aplicar filtros
+  const filtered = movs.filter((m) => {
     const d = m.fecha.substring(0, 10);
     if (d < filters.start || d > filters.end) return false;
     if (
@@ -86,8 +96,8 @@ const Dashboard: React.FC = () => {
     return true;
   });
 
-  const ingresos = filtered.filter(m => m.tipo === "ingreso");
-  const gastos = filtered.filter(m => m.tipo === "gasto");
+  const ingresos = filtered.filter((m) => m.tipo === "ingreso");
+  const gastos = filtered.filter((m) => m.tipo === "gasto");
   const totalIngresos = ingresos.reduce((sum, m) => sum + m.monto, 0);
   const totalGastos = gastos.reduce((sum, m) => sum + m.monto, 0);
   const balance = totalIngresos - totalGastos;
@@ -110,23 +120,26 @@ const Dashboard: React.FC = () => {
             tars={tars}
             selectedCats={filters.selectedCats}
             selectedTars={filters.selectedTars}
-            onChange={newF => setFilters(prev => ({ ...prev, ...newF }))}
+            onChange={(newF) => setFilters((prev) => ({ ...prev, ...newF }))}
           />
 
           <div className="kpi-grid">
             <KpiCard
               title="Total Ingresos"
-              value={`$${totalIngresos.toFixed(2)}`}
+              value={currencyFormatter.format(totalIngresos)}
             />
             <KpiCard
               title="Total Gastos"
-              value={`$${totalGastos.toFixed(2)}`}
+              value={currencyFormatter.format(totalGastos)}
             />
-            <KpiCard title="Balance" value={`$${balance.toFixed(2)}`} />
+            <KpiCard
+              title="Dinero al día de hoy"
+              value={currencyFormatter.format(balance)}
+            />
             <KpiCard title="Mov. Filtrados" value={countMovs} />
             <KpiCard
               title="Gasto Promedio"
-              value={`$${avgGasto.toFixed(2)}`}
+              value={currencyFormatter.format(avgGasto)}
             />
           </div>
 
