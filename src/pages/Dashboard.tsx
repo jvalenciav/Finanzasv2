@@ -24,10 +24,14 @@ const currencyFormatter = new Intl.NumberFormat("es-MX", {
   minimumFractionDigits: 2,
 });
 
-// Fechas por defecto: desde inicio de año hasta hoy
-const now = new Date();
-const startOfYear = `${now.getFullYear()}-01-01`;
-const today = now.toISOString().substring(0, 10);
+// Función para obtener la fecha de hoy en formato YYYY-MM-DD
+const getTodayISO = (): string => {
+  const d = new Date();
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const year = d.getFullYear();
+  return `${year}-${month}-${day}`;
+};
 
 const Dashboard: React.FC = () => {
   const idUsuario = localStorage.getItem("idUsuario") || "";
@@ -37,8 +41,8 @@ const Dashboard: React.FC = () => {
   const [tars, setTars] = useState<Tarjeta[]>([]);
 
   const [filters, setFilters] = useState({
-    start: startOfYear,
-    end: today,
+    start: `${new Date().getFullYear()}-01-01`, // 01 de enero del año actual
+    end: getTodayISO(),                          // hoy
     selectedTipos: [] as string[],
     selectedCats: [] as string[],
     selectedTars: [] as string[],
@@ -60,21 +64,17 @@ const Dashboard: React.FC = () => {
       setTars(allTars);
 
       const cm: Record<string, string> = {};
-      allCats.forEach((c) => {
-        cm[c.idCategoria] = c.nombre;
-      });
+      allCats.forEach((c) => (cm[c.idCategoria] = c.nombre));
       setCatMap(cm);
 
       const tm: Record<string, string> = {};
-      allTars.forEach((t) => {
-        tm[t.idTarjeta] = t.nombreTarjeta;
-      });
+      allTars.forEach((t) => (tm[t.idTarjeta] = t.nombreTarjeta));
       setTarMap(tm);
     };
     load();
   }, [idUsuario]);
 
-  // Aplicar filtros
+  // Aplica todos los filtros, incluyendo el de fecha "end" siempre hoy por defecto
   const filtered = movs.filter((m) => {
     const d = m.fecha.substring(0, 10);
     if (d < filters.start || d > filters.end) return false;
@@ -98,8 +98,8 @@ const Dashboard: React.FC = () => {
 
   const ingresos = filtered.filter((m) => m.tipo === "ingreso");
   const gastos = filtered.filter((m) => m.tipo === "gasto");
-  const totalIngresos = ingresos.reduce((sum, m) => sum + m.monto, 0);
-  const totalGastos = gastos.reduce((sum, m) => sum + m.monto, 0);
+  const totalIngresos = ingresos.reduce((s, m) => s + m.monto, 0);
+  const totalGastos = gastos.reduce((s, m) => s + m.monto, 0);
   const balance = totalIngresos - totalGastos;
   const countMovs = filtered.length;
   const avgGasto = gastos.length ? totalGastos / gastos.length : 0;
